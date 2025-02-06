@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+        <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+
+<ul>
+  <li><a class="active" href="{% url 'books' %}">Home</a></li>
+  <li><a href="#news">News</a></li>
+  <li><a href="#contact">Contact</a></li>
+  <li><a href="#about">About</a></li>
+</ul>
+<h1> UoS Books</h1>
+<table border="1">
+    <tr><th>Title</th><th>Author</th><th>Genre</th><th>Price</th><th>Stock</th></tr>
+    <tr>
+        {% for field in form %}
+        <td>{{field}}</td>
+        {% endfor %}
+    </tr>
+ {% for bk in book %}
+    <tr>
+
+        <td>{{bk.title}}</td>
+        <td>{{bk.author}}</td>
+        <td>{{bk.genre}}</td>
+        <td>{{bk.price}}</td>
+        <td>{{bk.stock}}</td>
+       <td><button name="UPDATE">UPDATE</button></td>
+       <td> <button name="UPDATE">DELETE</button></td>
+    </tr>
+{% endfor %}
+</table>
+</body>
+</html>

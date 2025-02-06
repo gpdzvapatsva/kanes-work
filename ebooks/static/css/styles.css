@@ -1,0 +1,33 @@
+/* Navbar container */
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: pink;
+  width: 100%; /* Ensures the navbar covers the full width */
+  display: flex; /* Flexbox makes it easier to control item layout */
+  justify-content: flex-start; /* Align items to the left */
+}
+
+/* Navbar items */
+li {
+  display: inline-block; /* Ensure li elements are in a row */
+  padding: 0; /* Remove any extra padding around list items */
+}
+
+/* Navbar links */
+li a {
+  display: block;
+  color: black; /* Changed text color for better contrast */
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Hover effect on links */
+li a:hover {
+  background-color: #111;
+  color: white;
+}
+h1{text-align:center;}
