@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from django.views.decorators.http import require_http_methods
+
 from .models import myBooks
 from .forms import myBooksForm
 from rest_framework import generics
@@ -18,6 +20,7 @@ class myBooksRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
 
 
 # Create your views here.
+@require_http_methods(["GET", "POST"])
 def books(request):
     form =myBooksForm()
     book=myBooks.objects.all()
