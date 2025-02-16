@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}
+ Contact Us
+{% endblock %}
+<body background-color:white;>
+{% block content %}
+
+<h1> Contact Us</h1>
+<div class="container" align="center">
+<form  action ="https://formspree.io/f/mjkgeeap" method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button  type="submit">SUBMIT</button>
+</form>
+{% endblock %}
+</div>
+</body>

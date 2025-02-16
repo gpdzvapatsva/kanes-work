@@ -27,7 +27,94 @@ li a {
 
 /* Hover effect on links */
 li a:hover {
-  background-color: #111;
-  color: white;
+  /*background-color: #111;*/
+  /*color: white;*/
 }
-h1{text-align:center;}
+h1, h2{text-align:center;}
+body{background-color: yellow;}
+
+
+/* New format */
+/* Apply box-sizing for consistent box model */
+.card-img-top {
+    height: 250px; /* Set your desired height */
+    object-fit: cover; /* Ensure the image covers the area without distortion */
+    width: 100%; /* Make the image take the full width of the card */
+}
+
+.col{
+width:20%;}
+* {
+  box-sizing: border-box;
+}
+
+/* Set the font family for the body */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Float four columns side by side */
+.column {
+  float: left;
+  width: 25%;
+  padding: 10 10px;
+
+}
+
+/* Remove extra left and right margins, due to padding */
+.row {
+  margin: 5% 10%;
+  display: flex; /* Ensure proper column alignment */
+  flex-wrap: wrap; /* Allow columns to wrap */
+  gap: 80px; /* Add gap between columns */
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive columns */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+}
+
+/* Style the counter cards */
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  text-align: center;
+  background-color: #f1f1f1;
+}
+
+
+
+/* Style the fixed footer */
+.fixed-footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%; /* Make the footer span the full width */
+    background-color: #333; /* Footer background color */
+    color: white; /* Footer text color */
+    text-align: center;
+    padding: 15px; /* Padding inside the footer */
+    font-size: 14px; /* Footer font size */
+}
+
+/* Optional: Style for the footer links or additional items */
+.fixed-footer a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.fixed-footer a:hover {
+    text-decoration: underline;
+}

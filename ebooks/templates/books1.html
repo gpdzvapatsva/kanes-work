@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}
+  The BookShop
+{% endblock %}
+{% block content %}
+<div class="container my-5">
+    <h1 class="text-center mb-4">Books In Stock</h1>
+ <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4">
+    {% for bk in books %}
+    <div class="col d-flex">
+        <div class="card h-100 d-flex flex-column">
+            <div class="card-body flex-grow-1">
+                <img src="{{ bk.image.url }}" class="card-img-top" alt="{{ bk.title }}">
+                <h4 class="card-title">{{ bk.title }}</h4>
+                <p class="card-text">Price: {{ bk.price }}</p>
+                <p class="card-text">Stock: {{ bk.stock }}</p>
+                <a href="{% url 'mycart' %}" class="btn btn-success">Order</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+    <div class="text-center mt-4">
+        <a href="{% url 'contact' %}" class="btn btn-primary">Click to enter Form</a>
+    </div>
+</div>
+{% endblock %}
+

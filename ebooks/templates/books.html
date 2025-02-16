@@ -1,39 +1,41 @@
-<!DOCTYPE html>
-<html lang="en">
-{% load static %}
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-        <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-</head>
-<body>
+{% extends "base.html" %}
+{% block title %}
+  My Tennis Club - List of all members
+{% endblock %}
 
-<ul>
-  <li><a class="active" href="{% url 'books' %}">Home</a></li>
-  <li><a href="#news">News</a></li>
-  <li><a href="#contact">Contact</a></li>
-  <li><a href="#about">About</a></li>
-</ul>
+{% block content %}
 <h1> UoS Books</h1>
-<table border="1">
-    <tr><th>Title</th><th>Author</th><th>Genre</th><th>Price</th><th>Stock</th></tr>
-    <tr>
-        {% for field in form %}
-        <td>{{field}}</td>
-        {% endfor %}
+<div class="container">
+<table border="1" align="center">
+    <!--CREATE part of CRUD-->
+    <form method="post" action="{% url 'books' %}">{% csrf_token %}
+    <tr><th>Title</th><th>Author</th><th>Genre</th><th>Price</th><th>Stock</th>
     </tr>
+        {% if not form.instance.id %}
+    <tr>
+       {% include 'save.html' %}
+    </tr>
+        {% endif %}
  {% for bk in book %}
     <tr>
-
+        {% if form.instance.id == bk.id %}
+        {% include 'save.html' %}
+        {% else %}
         <td>{{bk.title}}</td>
         <td>{{bk.author}}</td>
         <td>{{bk.genre}}</td>
         <td>{{bk.price}}</td>
         <td>{{bk.stock}}</td>
-       <td><button name="UPDATE">UPDATE</button></td>
-       <td> <button name="UPDATE">DELETE</button></td>
+       <td><button formnovalidate name="edit" value="{{ bk.id }} ">UPDATE</button></td>
+       <td> <button formnovalidate name="delete" value="{{ bk.id }}">DELETE</button></td>
+    {% endif %}
     </tr>
 {% endfor %}
+        </form>
 </table>
-</body>
-</html>
+
+<br/>
+    <div align="center">
+<form action="{% url 'contact' %}" method="get"><button type="submit" class="btn"  >Contact Us</button></form>
+ </div>
+    {% endblock %}

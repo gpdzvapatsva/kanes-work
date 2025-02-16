@@ -5,6 +5,7 @@ class myBooks(models.Model):
     title=models.CharField(max_length=64)
     author=models.CharField(max_length=64)
     genre=models.CharField(max_length=64)
+    image = models.ImageField(upload_to='media/', null="Nothing")
     price=models.DecimalField(max_digits=5, decimal_places=2)
     stock=models.IntegerField(default=0)
 
@@ -18,4 +19,4 @@ class myBooks(models.Model):
             raise ValidationError('Stock can not be negative')
 
     def __str__(self):
-        return f" title:{self.title}, author: {self.author}, genre:{self.genre}, price:{self.price}, stock:{self.stock}"
+        return f" {self.id}, title:{self.title}, author: {self.author}, genre:{self.genre},picture: {self.image}, price:{self.price}, stock:{self.stock}"
