@@ -14,6 +14,7 @@ class myBooksTestCase(TestCase):
         self.assertFalse(self.book.in_stock)
         self.book.price =-0
         self.assertFalse(self.book.price)
+        '''Test with price=10.00 and stock=5'''
         book1 = myBooks(price=10.00, stock=5)
         self.assertEqual(book1.get_total_price(), 9000.00)
 
