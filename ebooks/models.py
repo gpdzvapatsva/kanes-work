@@ -9,6 +9,7 @@ class myBooks(models.Model):
     price=models.DecimalField(max_digits=5, decimal_places=2)
     stock=models.IntegerField(default=0)
 
+    # function
     def get_total_price(self):
         return self.price * self.stock
 
